@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Kalkulator</title>
+		<script>
+		function plus(){
+			var first = Number(document.getElementById("first").value);
+			var second = Number(document.getElementById("second").value);
+			
+			var result = first + second;
+			
+			document.getElementById("third").value = result;
+		}
+		
+		function sub(){
+			var first = Number(document.getElementById("first").value);
+			var second = Number(document.getElementById("second").value);
+			
+			var result = first - second;
+			
+			document.getElementById("third").value = result;
+		}
+		
+		function mult(){
+			var first = Number(document.getElementById("first").value);
+			var second = Number(document.getElementById("second").value);
+			
+			var result = first * second;
+			
+			document.getElementById("third").value = result;
+		}
+		
+		function div(){
+			var first = Number(document.getElementById("first").value);
+			var second = Number(document.getElementById("second").value);
+			
+			var result = first / second;
+			
+			document.getElementById("third").value = result;
+		}
+			
+		</script>
+	</head>
+	<body>
+		<b>Kalkulator</b>
+		<br />
+		<input id="first" />
+		<input id="second" />
+		=
+		<input id="third" disabled="true"/>
+		<br />
+		<button onClick='plus()'>+</button>
+		<button onClick='sub()'>-</button>
+		<button onClick='mult()'>*</button>
+		<button onClick='div()'>/</button>
+		<br />
+		<a href="index.html" target="_blank">Strona Glowna</a>
+	</body>
+</html>
