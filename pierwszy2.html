@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+</head>
+ <body>
+    <p align="center"> 
+      <font size =  7>Projekt wykonany w ramach zajęć z informatyki 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(60);
+        
+       var bodyW = 118;
+var faceW = bodyW/3;
+var faceSize = 40;
+var x = 500;
+var y = 100;
+var earSize = faceSize*5/12;
+
+draw = function() {
+    background(43, 217, 110);
+    fill(171, 119, 15);
+    rect(74,64,29,110);
+    rect(299,36,29,110);
+    rect(329,271,25,110);
+    fill(69, 168, 34);
+    triangle(145,133,27,135,89,18);
+    triangle(395,355,288,354,344,238);
+    triangle(363,105,258,104,314,1);
+    fill(161, 152, 152);
+    quad(-16,435,-13,298,605,83,74,385);
+    fill(240, 182, 36);
+    //tail
+    bezier(x+74,y,x+141,y-30,x+55,y-22,x+87,y-13);
+    //legs
+    ellipse(x+58,y+15,6,26);
+    ellipse(x+46,y+17,6,26);
+    ellipse(x+34,y+20,6,26);
+    ellipse(x+20,y+20,6,26);
+    //body
+    ellipse(x+33,y, bodyW-30, 37); 
+     //ears
+    fill(176, 130, 14);
+    ellipse(x-faceSize*3/8,y-faceSize*4/8,faceSize*5/12,faceSize*5/12);
+    ellipse(x+faceSize*3/8,y-faceSize*4/8,faceSize*5/12,faceSize*5/12);
+    fill(240, 182, 36);
+    //face
+    ellipse(x, y, faceSize, faceSize); 
+    //eyes
+    fill(0, 0, 0);
+    ellipse(x-faceSize*3/8,y+faceSize*-1/8,faceSize*1/5,faceSize*1/5);
+    ellipse(x+faceSize*1/8,y-faceSize*1/8,faceSize*1/5,faceSize*1/5);
+    
+    y = y+1/3;
+    x = x-9/10;
+    faceSize = faceSize+1/10;
+    
+   if (x < -100) {
+       x = 500;
+       y = 100;
+       faceSize = 40;
+   }
+  
+  
+  
+};
+
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
